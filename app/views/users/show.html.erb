@@ -10,5 +10,29 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Microposts:</strong>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th scope='col'>ID</th>
+          <th scope='col'>Content</th>
+          <th scope='col'>Created At</th>
+          <th scope='col'>Updated At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts_of_user.each do |post| %>
+          <tr>
+            <td><%= post.id %></td>
+            <td><%= post.content %></td>
+            <td><%= post.created_at %></td>
+            <td><%= post.updated_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
